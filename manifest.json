@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "HN: Today by Points",
+  "version": "2.0",
+  "description": "Replaces the Hacker News front page with every story from the last 24h, ranked by points (via the HN Search API).",
+  "host_permissions": ["https://hn.algolia.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://news.ycombinator.com/", "https://news.ycombinator.com/news*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
